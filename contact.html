@@ -184,7 +184,7 @@
                                     <input type="submit" class="submit col-md-4 mt-10" value="SUBMIT">
                                 </div>
 
-                                <div id="errorMessage" class="error-message"></div>
+                                <div id="CaptchaMessage" class="error-message"></div>
 
 
                             </form>
@@ -293,45 +293,7 @@
             }
 
             // Wait until the DOM is fully loaded before running the script
-            document.addEventListener("DOMContentLoaded", function () {
 
-
-                // Initialize the CAPTCHA
-                let captchaValues = generateCaptcha();
-
-                // Form submission event
-                const contactForm = document.getElementById('contactForm');
-                contactForm.addEventListener('submit', function (event) {
-                    event.preventDefault(); // Prevent form from submitting by default
-
-                    const userAnswer = parseInt(document.getElementById('captchaAnswer').value);
-                    const correctAnswer = captchaValues.num1 + captchaValues.num2;
-
-                    if (userAnswer !== correctAnswer) {
-                        document.getElementById('CaptchaMessage').textContent = "Incorrect CAPTCHA. Please try again.";
-                        return;
-                    } else {
-                        document.getElementById('CaptchaMessage').textContent = ""; // Clear error message
-                    }
-
-                    // If all validations pass
-                    alert("Form submitted successfully!");
-
-                    // You can add your form submission logic here (e.g., send data to server)
-
-                    // Clear the form
-                    contactForm.reset();
-
-                    // Generate a new CAPTCHA
-                    captchaValues = generateCaptcha();
-                });
-            });
-            fetch("https://script.google.com/macros/s/AKfycbxb5GOm5Lg5kABnykDybw8EyprhMQeUsctM8TYh7GAlxRYrcqoQYh8uBi3tLEvvlbU_jw/exec", {
-                method: "POST",
-                body: data
-            }).then(response => response.text())
-                .then(result => alert(result))
-                .catch(error => alert("Error: " + error));
         </script>
         <script>
             // Load the header
