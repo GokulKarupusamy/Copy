@@ -175,16 +175,18 @@
                                     </div>
                                 </div>
                                 <!-- CAPTCHA Section -->
-                                <div class="captcha-section">
-                                    <label>CAPTCHA:<span id="num1"></span> + <span id="num2"></span> = </label>
-                                    <input type="text" id="captchaAnswer" required>
-                                    <button type="button" class="captcha-refresh-button color:blue"
+                                <div class="captcha-section col-12">
+                                    <label class="captcha">CAPTCHA :<span id="num1"></span> + <span id="num2"></span> =
+                                    </label>
+                                    <input type="text" class="form-control" id="captchaAnswer" required>
+                                    <button type="button" class="captcha-refresh-button col-md-4 mt-10"
                                         onclick="generateCaptcha()">Refresh CAPTCHA</button>
+                                    <input type="submit" class="submit col-md-4 mt-10" value="SUBMIT">
                                 </div>
 
                                 <div id="errorMessage" class="error-message"></div>
 
-                                <input type="submit" class="submit" value="Submit">
+
                             </form>
                         </div>
                     </div>
